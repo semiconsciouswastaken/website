@@ -1,0 +1,206 @@
+/* Base styles and variables */
+:root {
+  /* Default theme (neutral) */
+  --background-color: #f5f7fa;
+  --text-color: #333;
+  --accent-color: #4a6fa5;
+  --section-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Morning theme (6am-12pm) */
+.theme-morning {
+  --background-color: #e3f1f5;
+  --text-color: #2d3e50;
+  --accent-color: #f9a826;
+  --section-bg: #ffffff;
+  --shadow-color: rgba(73, 160, 203, 0.15);
+}
+
+/* Afternoon theme (12pm-6pm) */
+.theme-afternoon {
+  --background-color: #f2f8e8;
+  --text-color: #2b4c3a;
+  --accent-color: #4ba679;
+  --section-bg: #ffffff;
+  --shadow-color: rgba(75, 166, 121, 0.15);
+}
+
+/* Evening theme (6pm-10pm) */
+.theme-evening {
+  --background-color: #f8ecda;
+  --text-color: #4a3c43;
+  --accent-color: #e58e53;
+  --section-bg: #ffffff;
+  --shadow-color: rgba(229, 142, 83, 0.15);
+}
+
+/* Night theme (10pm-6am) */
+.theme-night {
+  --background-color: #282c3e;
+  --text-color: #e3e3e3;
+  --accent-color: #8186d5;
+  --section-bg: rgba(30, 33, 45, 0.9); /* Darker, semi-transparent background */
+  --shadow-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-image: url('image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--background-color); /* Fallback */
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+section {
+  background-color: var(--section-bg); /* Use theme variable instead of hardcoded white */
+  backdrop-filter: blur(5px); /* Adds a slight blur effect for modern browsers */
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center; /* Ensure all text is centered */
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+h1, h2 {
+  color: var(--accent-color);
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/* Greeting section */
+#greeting {
+  text-align: center;
+  font-weight: bold;
+}
+
+#greeting h1 {
+  margin-bottom: 5px;
+  color: var(--text-color); /* Use text color instead of accent color */
+}
+
+#greeting-text {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+/* Current time section */
+#current-time {
+  text-align: center;
+  font-weight: bold;
+}
+
+#clock {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 10px 0;
+  color: var(--accent-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Add subtle text shadow for better visibility */
+}
+
+#date {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* Weather section */
+#weather {
+  text-align: center;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#temperature {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+#condition {
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+#weather-icon {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .container {
+    gap: 20px;
+  }
+  
+  section {
+    padding: 20px;
+    margin: 0 10px; /* Add some horizontal margin on small screens */
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  #clock {
+    font-size: 2.5rem;
+  }
+  
+  #temperature {
+    font-size: 2rem;
+  }
+}
+
